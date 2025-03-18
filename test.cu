@@ -141,7 +141,7 @@ void test::gpu_testVectorAdd2(myLogger* logger) {
     cudaMemcpy(dev_data1, v1->getData(), len * sizeof(int), cudaMemcpyHostToDevice);
     cudaMemcpy(dev_data2, v2->getData(), len * sizeof(int), cudaMemcpyHostToDevice);
 
-    size_t blockLen = 512;
+    size_t blockLen = 1024;
     size_t gridLen = len / blockLen + 1 * (len % blockLen != 0);
     dim3 blocksPerGrid = dim3(gridLen);
     dim3 threadsPerBlock = dim3(blockLen);
